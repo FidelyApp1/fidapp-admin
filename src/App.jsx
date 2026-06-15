@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
 import RestaurantsPage from './pages/RestaurantsPage'
 import CreateRestaurantPage from './pages/CreateRestaurantPage'
+import RestaurantDetailPage from './pages/RestaurantDetailPage'
 
 const queryClient = new QueryClient()
 
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>}>
+            <Route path="restaurant/:id" element={<RestaurantDetailPage />} />
               <Route path="dashboard" element={<RestaurantsPage />} />
               <Route path="create" element={<CreateRestaurantPage />} />
               <Route index element={<Navigate to="/dashboard" />} />

@@ -82,6 +82,14 @@ const RestaurantsPage = () => {
                     <p className="text-xs text-gray-500">Clients</p>
                     <p className="text-white font-semibold">{resto._count.loyaltyCards}</p>
                   </div>
+                  {/* 📊 Bouton Détails */}
+                  <button
+                    onClick={() => navigate(`/restaurant/${resto.id}`)}
+                    className="text-xs px-3 py-1.5 rounded-lg font-medium bg-gray-800 text-gray-300 hover:bg-gray-700 transition-all"
+                  >
+                    Détails
+                  </button>
+                  {/* ⏸️ Bouton Suspendre / Réactiver */}
                   <button
                     onClick={() => suspendMutation.mutate({ id: resto.id, suspended: !resto.suspended })}
                     className={`text-xs px-3 py-1.5 rounded-lg font-medium transition-all ${
@@ -92,6 +100,7 @@ const RestaurantsPage = () => {
                   >
                     {resto.suspended ? 'Réactiver' : 'Suspendre'}
                   </button>
+                  {/* 🗑️ Bouton Supprimer */}
                   <button
                     onClick={() => handleDelete(resto.id, resto.name)}
                     className="text-xs px-3 py-1.5 rounded-lg font-medium bg-red-900 text-red-400 hover:bg-red-800 transition-all"
