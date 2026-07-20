@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { updateAdminPassword } from '../api/client'
+import { API_PUBLIC_URL, CLIENT_URL, DASHBOARD_URL } from '../lib/urls'
 
 const SettingsPage = () => {
   const { admin } = useAuth()
@@ -74,9 +75,9 @@ const SettingsPage = () => {
         <h3 className="font-semibold text-white mb-3">Liens rapides</h3>
         <div className="space-y-2">
           {[
-            { label: 'Client PWA', url: 'https://fidapp-client.vercel.app' },
-            { label: 'Dashboard restaurant', url: 'https://fidapp-dashboard.vercel.app' },
-            { label: 'Backend API', url: 'https://fidapp-backend-production.up.railway.app' },
+            { label: 'App client', url: CLIENT_URL },
+            { label: 'Dashboard restaurant', url: DASHBOARD_URL },
+            { label: 'Backend API', url: API_PUBLIC_URL },
           ].map(link => (
             <a key={link.url} href={link.url} target="_blank" rel="noreferrer"
               className="flex items-center justify-between px-4 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors">

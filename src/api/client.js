@@ -1,7 +1,8 @@
 import axios from 'axios'
+import { API_URL } from '../lib/urls'
 
 const api = axios.create({
-  baseURL: 'https://fidapp-backend-production.up.railway.app/api',
+  baseURL: API_URL,
   headers: { 'Content-Type': 'application/json' }
 })
 
